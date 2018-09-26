@@ -1,0 +1,12 @@
+Django==1.8.7
+django-filter==0.14.0
+djangorestframework==3.4.6
+email==4.0.2
+Markdown==2.6.6
+mongodbforms==0.3
+mongoengine==0.10.6
+pycparser==2.14
+pymongo==3.2.2
+requests==2.11.1
+wheel==0.24.0
+django-ipware==1.1.5

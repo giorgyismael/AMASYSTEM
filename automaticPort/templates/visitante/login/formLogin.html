@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<div id="loginUser" class="ui segment" xmlns="http://www.w3.org/1999/html">
+    <h2 class="">
+        <i class="user icon"></i>
+        Login
+    </h2>
+    <form class='ui form' action="{% url "login" %}" method="POST">
+        {% csrf_token %}
+
+        <section class="ui grey segment">
+            <div id="div-{{ form_login.username.id_for_label }}">
+                {{ form_login.username }}
+            </div>
+
+            <div id="div-{{ form_login.password.id_for_label }}">
+                {{ form_login.password }}
+            </div>
+
+                <div class="loginLembrete" >
+                        <a href="{% url "emailRecuperarSenha" %}">Esqueci minha senha</a> |
+                        <a href="{% url "emailAtivacao" %}">Ativar Cadastro!</a>
+                </div>
+
+            <br>
+            <br>
+
+            <input type="submit" value="Entrar" class="ui small positive right floated button">
+            <input type="reset" value="Limpar" class="ui small right floated red basic button">
+
+            <br>
+            <br>
+        </section>
+    </form>
+</div>
+<div id="novoCadastro">
+
+    <h4 class="ui horizontal divider header">
+        <i class="tag icon"></i>
+
+    </h4>
+
+    <div class="ui icon message">
+        <i class="add user icon"></i>
+        <div class="content">
+            <div class="header">
+                <a href="{% url 'cadastroUsuario' %}"> Ainda não possui cadastro?</a>
+            </div>
+            <p>Realize cadastro no portal para obter acesso aos ambientes monitorados.</p>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,15 @@
+{% extends 'visitante/baseVisitante.html' %}
+{% load staticfiles %}
+{% block title %}{{ titulo_pagina }}{% endblock title %}
+{% block body %}
+    {% include 'visitante/index/articleIndex.html' %}
+{% endblock %}
+
+{% block aside %}
+    {%  include 'visitante/cadastro/formCadastro.html' %}
+{% endblock %}
+
+
+
+
+

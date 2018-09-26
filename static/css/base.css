@@ -1,0 +1,71 @@
+#menu_user a{
+    color: #0f0f10;
+}
+
+#navTopLine{
+    background-color: #800000;
+    height: 10%;
+}
+#nav{
+    min-height: 12% !important;
+    background: #1b1c1d;
+}
+                   
+#body{
+    min-height: 80% !important;
+}
+
+div#footer {
+    min-height: 2% !important;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+div#footer footer{
+    padding-bottom: inherit;
+    margin-bottom: inherit;
+}
+
+#id_data{
+    max-height: 33px;
+}
+
+.loginLembrete{
+    margin: 2%;
+    font-size: 80%;
+    float: right;
+}
+
+#button-ambiente{
+    padding: 3% ;
+    margin: 1% ;
+    font-size: 10%;
+}
+
+
+#size_name_user i{
+    font-size: 115%;
+}
+
+.errorlist{
+    list-style: none !important;
+    margin: 0px;
+    padding:0px;
+    display: inline;
+
+}
+
+.form input{
+    margin: 0.2% !important;
+}
+
+html, body{
+    background-color: #EEEEE0;
+}
+
+#cadastro{
+    margin-top: 0;
+}
+
+
+

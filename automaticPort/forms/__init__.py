@@ -1,0 +1,6 @@
+from automaticPort.forms.formUsuario import FormUsuario
+from automaticPort.forms.formPerfil import FormPerfil
+from automaticPort.forms.formLogin import FormLogin
+from automaticPort.forms.formFaleConosco import FormFaleConosco
+from automaticPort.forms.formEmail import FormEmailAtivacao, FormRecuperarSenha,FormEmailRecuperarSenha
+from automaticPort.forms.formUsuarioAmbiente import FormUsuarioAmbiente

@@ -1,0 +1,2 @@
+from automaticPort.serializer.serializerUsuario import UsuarioSerializer
+from automaticPort.serializer.serializerRequestArduino import ResponseUsuarioSerializer

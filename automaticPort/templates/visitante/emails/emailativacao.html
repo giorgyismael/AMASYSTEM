@@ -1,0 +1,34 @@
+{% extends 'visitante/baseVisitante.html' %}
+{% load staticfiles %}
+{% block title %}{{ tituloPagina }}{% endblock title %}
+{% block body %}
+
+{% endblock %}
+
+{% block aside %}
+    <div id="loginUser" class="ui segment">
+    <h2 class="">
+        <i class="cubes icon"></i>
+        Suporte
+    </h2>
+    <form class="ui form red" method="POST"  enctype="multipart/form-data">
+        {% csrf_token %}
+        <section class="ui orange segment">
+            <section class="ui header">Email de Ativação</section>
+            {% for field in formEmailAtivacao %}
+                    <div id="div-{{ field.id_for_label }}">
+                        {{ field }}
+                        {% if field.errors %}
+                            <div id="error" class="ui pointing label top red basic erro">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+            {% endfor %}
+        <br/>
+        <input type="submit" value="Enviar" class="ui positive right floated small button">
+        <br/><br/>
+        </section>
+    </form>
+    </div>
+{% endblock %}

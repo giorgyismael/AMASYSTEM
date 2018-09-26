@@ -1,0 +1,66 @@
+    <div id="cadastro" class="ui segment">
+        <h2 class="">
+            <i class="users icon"></i>
+            Editar Perfil
+        </h2>
+        <div>
+            <form class="ui form red" method="POST" action="{% url 'editarPerfil' user.id %}"
+                  enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <section class="ui orange segment">
+                    <section class="ui header">Dados Pessoais</section>
+                    {% for field in form_usuario.visible_fields %}
+
+                        {% if not field.label == 'Password' and not field.label  == 'Usuário' %}
+                            <div id="div-{{ field.id_for_label }}">
+                                {{ field }}
+                                {% if field.errors %}
+                                    <div id="error" class="ui pointing label top red basic erro">
+                                        {{ field.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
+                </section>
+
+                <section class="ui blue segment">
+                    <section class="ui  header">Dados de Acesso</section>
+                    {% for field in form_usuario.visible_fields %}
+
+                        {% if  field.label == 'Usuário' or  field.label == 'Password' %}
+                            <div id="div-{{ field.id_for_label }}">
+                                {{ field }}
+                                {% if field.errors %}
+                                    <div id="error" class="ui pointing label top red basic erro">
+                                        {{ field.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
+                </section>
+
+
+                {% for field in form_usuario.hidden_fields %}
+                    {{ field }}
+                {% endfor %}
+                <br>
+                <a href="{% url "index" %}">
+                    <input type="button" value="Cancelar" class="ui negative left floated small button">
+                </a>
+                <input type="reset" value="Limpar" class="ui left floated orange basic small button">
+                <input type="submit" value="Salvar" class="ui positive right floated small button">
+                <br>
+                <br>
+            </form>
+        </div>
+    </div>
+
+
+
+
+

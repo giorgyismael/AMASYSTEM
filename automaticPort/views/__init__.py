@@ -1,0 +1,18 @@
+from automaticPort.views.cadastro import Cadastro, AtivaCadastro
+from automaticPort.views.perfil import Perfil
+from automaticPort.views.index import Index
+from automaticPort.views.emailAtivacao import EmailAtivacao
+from automaticPort.views.recuperarSenha import RecuperarSenha
+from automaticPort.views.login import Login
+from automaticPort.views.suporte import Suporte
+from automaticPort.views.faleConosco import FaleConosco
+from automaticPort.views.controleAcesso import ControleAcesso
+from automaticPort.views.serializerViewUsuario import SerializerViewUsuario
+from automaticPort.views.viewAmbienteAutorizado import viewAmbienteAutorizado
+from automaticPort.views.viewRequestArduino import viewRequestArduino
+from automaticPort.views.viewSolicitaAcesso import viewSolicitaAcesso
+from automaticPort.views.viewRequestAmbiente import ViewRequestAmbiente
+
+from automaticPort.views.faleConosco_admin import FaleConosco_admin
+
+from automaticPort.views.viewRequest_temperatura import viewRequest_temperatura

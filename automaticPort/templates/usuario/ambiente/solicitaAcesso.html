@@ -1,0 +1,56 @@
+{% extends 'usuario/baseUsuario.html' %}
+{% load staticfiles %}
+{% block title %}{{ titulo_pagina }}{% endblock title %}
+{% block body %}
+    <div class="ui grid stackable center aligned row">
+        <div class="ui six wide column">
+            <div class="ui segment">
+                <h2 class="">
+                    <i class="compress icon"></i>
+                    Solicitar Acesso
+                </h2>
+                <form class="ui form red" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <section class="ui orange segment">
+                <section class="ui  header">Ambiente</section>
+                    {% for field in formUsuarioAmbiente.visible_fields %}
+                        {% if  field.label == 'Bloco' or  field.label == 'Ambiente' %}
+                            <div id="div-{{ field.id_for_label }}">
+                                {{ field }}
+                                {% if field.errors %}
+                                    <div id="error" class="ui pointing label top red basic erro">
+                                        {{ field.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                 </section>
+
+                <section id="controleAcesso" class="ui blue segment">
+                    <section class="ui  header">Controle de Acesso</section>
+                    {% for field in formUsuarioAmbiente.visible_fields %}
+                        {% if  not field.label == 'Bloco' and not field.label  == 'Ambiente' %}
+                            <div id="div-{{ field.id_for_label }}">
+                                {{ field }}
+                                {% if field.errors %}
+                                    <div id="error" class="ui pointing label top red basic erro">
+                                        {{ field.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
+                </section>
+
+                <br>
+                <input type="submit" value="Enviar" class="ui positive right floated small button">
+                </form>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

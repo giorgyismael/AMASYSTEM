@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<nav id="header" class="ui inverted segment">
+    <nav class="ui inverted secondary pointing menu">
+        {% if user.is_authenticated %}
+            <div id="Ambiente" class="item">
+                    <div class="ui simple dropdown">
+                        <i class="privacy icon"></i>
+                        Ambiente <i class="dropdown icon"></i>
+                        <div id='menu_user' class="menu">
+                            <div id="ambienteAutorizado" class="item "><i class="exchange icon"></i><a href="{% url 'ambienteAutorizado' %}">Autorizados</a>
+                            </div>
+                            <div id="SolicitarAcesso" class="item "><i class="compress icon"></i><a href="">Solicitar Acesso</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="right menu">
+                <div class="item">
+                    <div class="ui simple dropdown">
+                        <i class="user icon"></i>
+                        Perfil <i class="dropdown icon"></i>
+                        <div id='menu_user' class="menu">
+                            <div id="admin" class="item "><i class="setting out icon"></i><a href="{% url 'editarPerfil' user.id %}">Edit</a>
+                            </div>
+                            <div id="logout" class="item "><i class="sign out icon"></i><a href="{% url 'logout' %}">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+
+
+
+        {% endif %}
+
+        <input id="controle_menu" value="{{ controleMenu }}" type="hidden">
+        <input id="error_js" type="hidden">
+    </nav>
+</nav>

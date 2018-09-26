@@ -1,0 +1,33 @@
+{% extends 'usuario/baseUsuario.html' %}
+{% load staticfiles %}
+{% block title %}{{ titulo_pagina }}{% endblock title %}
+{% block body %}
+    <div class="ui grid stackable center aligned row">
+
+            {% for ambiente in ambientes %}
+                <div class="ui four wide column">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="ui segment">
+                            <h4 class="ui header fazul">
+                                <i class="block layout icon"></i>
+                                <div class="content">
+                                    {{ ambiente.ambiente.bloco }}
+                                </div>
+                            </h4>
+                            <div class="ui divider">
+                                <p class="bloco hidden agente"></i>{{ ambiente.ambiente.nome }}
+                                    <button id="button-ambiente" autofocus="autofocus" type="submit" value="Abrir Porta"
+                                            class="ui positive right floated small button">
+                                </p>
+                                <input type="text" name="id_ambiente" value="{{ ambiente.ambiente.id }}" hidden></i>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head id="header">
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/semantic/semantic.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/semantic/components/dropdown.css' %}"/>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{% static 'js/semantic/semantic.js' %}"></script>
+    <script src="{% static 'js/semantic/dropdown.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+   <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body id="conteudo" onload="Menu();">
+<div id="nav" class="ui grid ">
+
+        <div id="navTopLine" class="ui wide column row "></div>
+        <div class="ui wide column row">
+            {% include 'visitante/menu/navVisitante.html' %}
+        </div>
+
+</div>
+
+
+<div id="body" class="ui fourteen centered grid  stackable ">
+        <article class="ui ten wide column ">
+            {% block body %}{% endblock %}
+        </article>
+
+        <aside class="ui four wide column ">
+            {% block aside %}{% endblock %}
+        </aside>
+</div>
+
+
+<div id="footer" class="ui grid centered ">
+        <footer class="ui tertiary segment row">
+            <address >Instituto Federal de Educação, Ciência e Tecnologia Catarinense - Câmpus
+                Araquari<br>
+                Rodovia BR 280 - km 27 - Cx. Postal 21 - CEP 89245-000 - Araquari - SC - Fone (47) 3803-7200 - Fax (47)
+                3803-7201
+            </address>
+        </footer>
+</div>
+
+<section id="modelServiceMessenger" class="ui small modal">
+    <div class="header">Mensagem</div>
+    <div class="content">
+        <input id="serviceMessenger" type="text" value="{{ messengerError }}{{ messengerSucess }}" hidden>
+        <p>{{ messengerError }} {{ messengerSucess }}</p>
+    </div>
+    <div class="actions">
+        <div class="ui approve green button">Continue</div>
+    </div>
+</section>
+
+</body>
+</html>

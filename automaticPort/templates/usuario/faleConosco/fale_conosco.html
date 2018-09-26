@@ -1,0 +1,56 @@
+{% extends 'usuario/faleConosco/baseUsuario1.html' %}
+{% load staticfiles %}
+{% block title %}{{ titulo_pagina }}{% endblock title %}
+{% block body %}
+
+<div class="ui raised segment">
+
+        <h2 class="ui header">
+            <i class="feed icon"></i>
+            <div class="content">
+                Fale Conosco do Administrador
+            </div>
+        </h2>
+    <table class="ui fixed table">
+  <thead>
+
+
+
+    <tr><th>Nome</th>
+    <th>Status</th>
+    <th>descrição</th>
+    <th>E-mail</th>
+    <th>Responder</th>
+  </tr></thead>
+  <tbody>
+
+
+
+
+  {% for fale in  todos_fale_connosco %}
+    <tr>
+      <td>{{ fale.nome}}</td>
+      <td>{{ fale.status}}
+        {% if fale.status == "Pendente" %}
+            <i class="ui checkmark icon red"></i>
+        {% endif %}</td>
+
+
+      <td>{{ fale.descricao}}</td>
+      <td>{{ fale.email}}</td>
+       <td> <i class="sign in icon"></i> </td>
+    </tr>
+    <tr>
+
+    {% endfor %}
+
+
+
+  </tbody>
+</table>
+
+    <h4>Total de fale conosco: {{total_fales}}</h4>
+
+
+{% endblock %}
+

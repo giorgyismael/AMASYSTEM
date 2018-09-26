@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<nav id="header" class="ui inverted segment">
+    <nav class="ui inverted secondary pointing menu">
+
+        <a href="{% url "cadastroUsuario" %}" id="cadastroUsuario" class="item">
+            <i class="student icon"></i>
+            Registre-se
+        </a>
+
+        <a href="{% url 'suporte' %}" id="suporte" class="item">
+            <i class="cubes icon"></i>
+            Suporte
+        </a>
+
+
+        <a href="{% url 'login' %}" id="login" class="item">
+            <i class="sign in icon"></i>
+            Login
+        </a>
+
+
+        <input id="controle_menu" value="{{ controleMenu }}" type="hidden">
+        <input id="error_js" type="hidden">
+    </nav>
+</nav>
