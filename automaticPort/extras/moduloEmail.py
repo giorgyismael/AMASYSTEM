@@ -11,7 +11,7 @@ from email.mime.text import MIMEText
 def emailAtivacaoCadastro(nomeUsuario, emailUsuario, assunto, chaveAtivacao, dominio):
         server = smtplib.SMTP()
         server.connect('localhost')
-        me = "contato@sisca.fabricadesoftware.ifc.edu.br"
+        me = "no-reply@sisca.fabricadesoftware.ifc.edu.br"
         you = "{}".format(emailUsuario)
         subject = assunto
 
@@ -42,7 +42,7 @@ def emailAtivacaoCadastro(nomeUsuario, emailUsuario, assunto, chaveAtivacao, dom
 def emailRecuperarSenha(nomeUsuario, emailUsuario, assunto, chaveAtivacao, dominio):
         server = smtplib.SMTP()
         server.connect('localhost')
-        me = "contato@sisca.fabricadesoftware.ifc.edu.br"
+        me = "no-reply@sisca.fabricadesoftware.ifc.edu.br"
         you = "{}".format(emailUsuario)
         subject = assunto
 
@@ -74,7 +74,7 @@ def emailRecuperarSenha(nomeUsuario, emailUsuario, assunto, chaveAtivacao, domin
 def emailFaleConosco(nomeUsuario, emailUsuario, assunto, descricao):
         server = smtplib.SMTP()
         server.connect('localhost')
-        me = "giorgyismael@gmail.com"
+        me = "no-reply@sisca.fabricadesoftware.ifc.edu.br"
         you = "{}".format(emailUsuario)
         subject = assunto
 
