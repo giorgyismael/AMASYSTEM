@@ -5,6 +5,8 @@ from automaticPort.views import *
 from automaticPort.extras.moduloMensagem import MessengerSucess
 from automaticPort.views import faleConosco_admin
 from automaticPort.views.faleConosco_admin import FaleConosco_admin
+from automaticPort.forms import FormLogin
+
 
 router = routers.DefaultRouter()
 router.register(r'usuarios', SerializerViewUsuario)
@@ -63,5 +65,5 @@ urlpatterns = patterns("",
 
         url(r'^suporte/$', Suporte.as_view(),name='suporte'),
 
-        url(r'^logout/$', 'django.contrib.auth.views.logout', {'template_name': 'visitante/index/index.html', 'extra_context': {'controleMenu': 'logout', 'messengerSucess': MessengerSucess().Usuario(3)}}, name='logout'),
+        url(r'^logout/$', 'django.contrib.auth.views.logout', {'template_name': 'visitante/index/index.html', 'extra_context': {'form_login':FormLogin(),'controleMenu': 'logout', 'messengerSucess': MessengerSucess().Usuario(3)}}, name='logout'),
 )

@@ -26,7 +26,7 @@ class MessengerError:
             return u"Usuario ou senha incorretos"
 
         elif errorIdentification == 2:
-            return u"Ops! Parece que não encontramos usuário!"
+            return u"Ops! Está tantando acessar outro cadastro, \nSua ação será reportada ao Administrador!"
 
         elif errorIdentification == 3:
             return u"Ops! Parece este que este Ambiente não está Autorizado!"

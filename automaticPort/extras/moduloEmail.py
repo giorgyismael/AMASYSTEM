@@ -104,6 +104,39 @@ def emailFaleConosco(nomeUsuario, emailUsuario, assunto, descricao):
         server.sendmail(me, you, msg.as_string())
         server.quit()
 
+
+def emailSeguranca(emailAdministrador, nomeUsuario, assunto):
+        server = smtplib.SMTP()
+        server.connect('localhost')
+        me = "no-reply@sisca.fabricadesoftware.ifc.edu.br"
+        you = "{}".format(emailAdministrador)
+        subject = "{}".format(assunto)
+
+        msg = MIMEMultipart('alternative')
+        msg['Subject'] = subject
+        msg['From'] = me
+        msg['To'] = you
+
+        html = """
+                    <h2><b>Ops. :/ </b></h2>
+                    <p>O usuário abaixo tentou realizar a edição de um cadsatro que não lhe pertence</p>
+                    <p>Fique Atento!</p>
+                    <p>Nome:{}<br>
+
+                    <p>Atenciosamente,
+                    <br>
+                    Equipe de Suporte<br>
+                    giorgyismael@gmail.com<br>
+                    +55 (47)84390048 | (47) 84390048</p>
+                    """.format(nomeUsuario)
+
+        txt = MIMEText(html, 'html')
+        msg.attach(txt)
+        #s = smtplib.SMTP('localhost','587')
+        #s.starttls()
+        server.sendmail(me, you, msg.as_string())
+        server.quit()
+
 #print('enviando')
 #emailFaleConosco('gaf', 'giorgyismael@gmail.com', 'qweqwe', 'qweqe')
 #print('foi')
