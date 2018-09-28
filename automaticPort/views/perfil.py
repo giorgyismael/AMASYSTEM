@@ -8,6 +8,7 @@ from automaticPort.models import Usuario
 from automaticPort.views.loginrequired import LoginRequiredMixin
 from django.contrib.auth import authenticate, login
 from automaticPort.extras.moduloMensagem import MessengerError,MessengerSucess
+from automaticPort.extras.moduloEmail import emailSeguranca
 
 
 class Perfil(LoginRequiredMixin,View):
@@ -18,13 +19,16 @@ class Perfil(LoginRequiredMixin,View):
     }
     def get(self, request, user_id=None):
         self.conteudo.update({'messengerSucess': '', 'messengerError': ''})
-        if user_id:
+
+        if int(user_id) == request.user.id:
             usuario = Usuario.objects.get(id=user_id)
             form = FormPerfil(instance=usuario)
 
         else:
-            form = FormPerfil()
-            self.template='index/index.html',
+            print("cai aqui")
+            print(request.user.username)
+            emailSeguranca("giorgyismael@gmail.com",request.user.username,"Ação Suspeita")
+            form = FormPerfil(instance=request.user)
             self.conteudo.update({
                 'messengerError': MessengerError().Usuario(2)
             })
@@ -37,17 +41,27 @@ class Perfil(LoginRequiredMixin,View):
         return render(request, self.template, self.conteudo)
 
     def post(self, request, user_id=None):
-        self.conteudo.update({'messengerSucess': '', 'messengerError': ''})
+        self.conteudo.update({
+            'messengerSucess': '', 'messengerError': '',
+            'controleMenu':'Edit',
+            'titulo_pagina': 'Editar perfil',
+        })
 
-        if user_id:
+        if int(user_id) == request.user.id:
             usuario = Usuario.objects.get(id=user_id)
             form = FormPerfil(instance=usuario, data=request.POST)
         else:
+            self.template = 'usuario/perfil/perfil.html'
             form = FormPerfil(request.POST)
+            self.conteudo.update({
+                'form_usuario': form,
+                'messengerError': MessengerError().Usuario(2),
+            })
+
+            return render(request, self.template, self.conteudo)
 
         self.conteudo.update({
             'form_usuario': form,
-            'titulo_pagina': 'Editar perfil',
         })
 
         if form.is_valid():
